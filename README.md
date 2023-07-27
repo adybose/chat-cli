@@ -12,7 +12,7 @@ There are two main commands for using the application:
 - `clio`: The base command to run the application in Inline Mode
 - `chat`: The base command to run the application in Interactive Shell Mode.
 
-**Note: [WIP]** The application is currently works only in Inline Mode
+**Note: [WIP]** The application currently works only in Inline Mode which only accepts either of the above base commands followed by the user's prompt.
 
 Just say `clio` to see its detailed usage information like this:
 ```
@@ -91,7 +91,7 @@ To begin the setup for the application, first you need to download the project r
 - Create a **.env** file from the **.env.example** file to store environment variables that you want for this application.
 
 
-## Improtant: OpenAI API Key Configuration
+## Important: OpenAI API Key Configuration
 If you have an OpenAI API Key having usage credits, you can configure it for your project on Linux and macOS using any one of the three methods mentioned below:
 - You can either `export OPENAI_API_KEY=<yourkey>`, or have a `.env` file in the same directory as `main.py` with `OPENAI_API_KEY="<yourkey>"` as a line
 - Create a file at `~/.openai.apikey` with the key in it
