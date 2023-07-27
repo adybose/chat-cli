@@ -6,10 +6,13 @@ A friendly AI programming assistant right in your `~/.`
 [MIT](LICENSE)
 
 
+
 # Usage
 There are two main commands for using the application:
 - `clio`: The base command to run the application in Inline Mode
 - `chat`: The base command to run the application in Interactive Shell Mode.
+
+**Note: [WIP]** The application is currently works only in Inline Mode
 
 Just say `clio` to see its detailed usage information like this:
 ```
