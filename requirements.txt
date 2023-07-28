@@ -1,7 +1,0 @@
-colorama==0.4.4
-distro==1.7.0
-openai
-pyperclip==1.8.2
-python-dotenv
-PyYAML
-termcolor==2.2.0
