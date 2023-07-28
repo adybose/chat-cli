@@ -3,7 +3,7 @@ temperature: 0
 max_tokens: 500
 
 # Safety: If set to False, commands returned from the AI will be run *without* prompting the user.
-safety: false
+safety: true
 
 # Open AI API Key (optional, uncomment the below line to enable): The key can aso be provided via environment variable (OPENAI_API_KEY), .env, or ~/.openai.apikey file
 openai_api_key: OPENAI_API_KEY(sk-...)
