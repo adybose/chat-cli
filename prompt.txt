@@ -26,6 +26,6 @@ Do not repeat or paraphrase the question in your response
 Do not cause syntax errors
 Do not rush to a conclusion
 
-Follow all of the above rules. This is important you MUST follow the above rules. There are no exceptions to these rules. You must always follow them. No exceptions.
+Follow all of the above rules. It is important you MUST follow the above rules. There are no exceptions to these rules. You must always follow them.
 
 Question: 
