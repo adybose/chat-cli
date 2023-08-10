@@ -10,7 +10,7 @@ import yaml
 # Formatting and colorization
 import colorama
 
-from app.utils.formatting import  check_for_issue, check_for_markdown, evaluate_input, prompt_user_input
+from app.utils.formatting import  check_for_issue, check_for_markdown, display_response_command_and_prompt_user_input, evaluate_input
 from app.utils.openai import call_open_ai, set_api_key
 
 
@@ -26,13 +26,13 @@ def print_usage():
     print("AI Superpowers in your Terminal >_")
     print()
     print()
-    print("Basic Usage:             [ALIAS] [-p] [PROMPT] [--help]")
+    print("Basic Usage:             [ALIAS] [-a] [PROMPT] [--help]")
     print()
     print("  Aliases:")
     print("    clio                 The default Agent available universally out of the box. Expert in executing tasks in *nix Operating Systems")
     print()
     print("  Options:")
-    print("    -p, --pause          Pauses to ask for user confirmation before executing any command. Used only after the alias name and before PROMPT along with Safety config set to 'Off'")
+    print("    -a, --ask          Pauses to ask for user confirmation before executing any command. Used only after the alias name and before PROMPT along with Safety config set to 'Off'")
     print("        --help           Used only at the end of an Inline Mode usage to print the detailed usage guide for the current agent, or explanation for the generated response on an inline prompt")
     print()
     print("  [ALIAS] --help' will display the Detailed Usage of the Agent along with Help Docs on using and updating the different configurations/settings of the Agent")
@@ -41,7 +41,7 @@ def print_usage():
     print("Interactive Usage:       chat [-p] [--help]")
     print()
     print("  Options:")
-    print("    -p, --pause          Pauses to ask for user confirmation before executing any command. Used only after the alias name and before PROMPT along with Safety config set to 'Off'")
+    print("    -a, --ask          Pauses to ask for user confirmation before executing any command. Used only after the alias name and before PROMPT along with Safety config set to 'Off'")
     print()
     print("  Type 'chat --help' to display the complete Usage Docs containing the detailed usage guide of different modules and entities of the application")
     print()
@@ -59,7 +59,6 @@ def read_config() -> any:
     Find the executing directory (e.g. in case an alias is set)
     so that we can find the config file
     """
-    # import ipdb;ipdb.set_trace()
     clio_path = os.path.abspath(__file__)
     prompt_path = os.path.dirname(clio_path)
 
@@ -70,6 +69,9 @@ def read_config() -> any:
 
 # Main Driver Code
 if __name__ == "__main__":
+    """
+    Entry point of the application in the inline mode
+    """
     config = read_config()
     set_api_key(config)
 
@@ -82,24 +84,25 @@ if __name__ == "__main__":
 
     # Parse arguments and make sure we have at least a single word
     if len(sys.argv) < 2:
+        # TODO: if it is a single word 'chat', open app in shell mode
         print_usage()
         sys.exit(-1)
   
     # Safety switch via argument -a (local override of global setting)
     # Force Y/n questions before running the command
-    if sys.argv[1] == "-p" or sys.argv[1] == "--pause":
+    if sys.argv[1] == "-a" or sys.argv[1] == "--ask":
         ask_flag = True
         command_start_idx = 2
   
     # To allow easy/natural use we don't require the input to be a 
-    # single string. So, the user can just type clio what is my name?
+    # single string. So, the user can just type clio what is the time
     # without having to put the question between ''
-    arguments = sys.argv[command_start_idx:]
+    arguments = sys.argv[command_start_idx:]  # arguments are the final set of words that are sent to OpenAI as final prompt
     user_prompt = " ".join(arguments)
 
-    response_command = call_open_ai(user_prompt, shell, config) 
-    check_for_issue(response_command)
+    response_command = call_open_ai(user_prompt, shell, config)  # the response as shell command that comes back from OpenAI
+    check_for_issue(response_command)  # should check if the response command is valid and doesn't produce errors
     check_for_markdown(response_command)
-    user_input = prompt_user_input(response_command, config, ask_flag)
-    print()
-    evaluate_input(user_input, response_command, shell, config)
+    user_input = display_response_command_and_prompt_user_input(response_command, config, ask_flag)  # prompt asking the user for confirmation before executing any command
+    print()  # prints a new line before the result of the final command executed
+    evaluate_input(user_input, response_command, shell, config, ask_flag)  # evaluate/execute the command

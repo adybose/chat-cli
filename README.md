@@ -29,10 +29,10 @@ Just say `clio` to see the detailed usage information like shown below:
 chat-cli v0.1
 AI Superpowers in your Terminal >_
 
-Usage: clio [OPTIONS] PROMPT
+Usage: clio [OPTION] PROMPT
 
 Options:
-  -a, --ask        Pauses to ask user for confirmation before executing any command (Only available with PROMPT and Safety config is Off)
+  -a, --ask        Ask the user for confirmation before executing any command (Only available with PROMPT and Safety config is Off)
 
 * Model        : gpt-3.5-turbo
 * Temperature  : 0
