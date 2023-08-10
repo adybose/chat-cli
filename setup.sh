@@ -1,7 +1,9 @@
 # Simple installer for clio in the user's home directory
 
-echo "Hello Shell! Running chat-cli setup.sh ..."
-echo "Installing clio ..."
+echo "Hello Terminal >_"
+echo "Running chat-cli setup.sh ..."
+echo "Installing clio..."
+echo
 echo "- Creating chat-cli/ in home directory..."
 TARGET_DIR=~/chat-cli
 TARGET_FULLPATH=$TARGET_DIR/main.py
@@ -33,7 +35,8 @@ else
 fi
 
 echo
-echo "Setup Complete!"
+echo "Setup Complete! Successfully installed chat-cli v0.1"
+echo "Run this script when there is a new update. Follow https://github.com/adybose/chat-cli"
 echo
 echo "Make sure you have the OpenAI API key set via one of these options:" 
 echo "  - environment variable"

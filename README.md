@@ -1,5 +1,5 @@
 # chat-cli
-A friendly AI programming assistant right in your Shell `~/.`
+AI Superpowers in your Terminal `>_`
 
 
 # License
@@ -8,30 +8,48 @@ A friendly AI programming assistant right in your Shell `~/.`
 
 > **DISCLAIMER!!** This software is currently in an early alpha stage. Use with Caution ⚠️
 >
-> We welcome you to take it for a spin, but we do not guarantee the application running completely as per the usage guidelines.
+> The application needs your OpenAI API key to generate response. More models coming soon.
+>
+> We welcome you to take it for a spin, but we do not guarantee the application running fully as per the usage guidelines.
 
 
 # Usage
+## Basic Usage
 There are two base commands available for using the application: 
 `chat`, and `clio`.
+> #### Coming Soon
+> - Create your own specialized agents whom you can invoke in Inline Mode using their individual aliases
+> - Open **chat-cli** in Shell mode to interact with the application in a conversational interface to execute more complex tasks.
 
-> **Note:** The command `clio` is an acronym which stands for **Command Line Input Output**. We just coined it because we wanted a friendly, relatable name for such a general-purpose CLI application as this. You can create your own aliases to invoke the application.
 
-Just say `clio` to see the detailed usage information like shown below:
+
+
+Just type `chat` or `clio` to see the detailed usage information like shown below:
 ```
-chat-cli v0.1
-A friendly AI programming assistant right in your Shell
 
-Usage: clio [OPTIONS] PROMPT
+chat-cli v0.1
+AI Superpowers in your Terminal >_
+
+Usage: [ALIAS] [OPTION] [PROMPT]
+
+Aliases:
+  chat              The default alias available universally out of the box.
+                    Expert in executing tasks in *nix Operating Systems
+  clio              The default Agent alias available universally out of the box.
+                    Expert in executing tasks in *nix Operating Systems
 
 Options:
-  -a, --ask        Pauses to ask the user's confirmation before executing any command (Only available with PROMPT and Safety config is Off)
+  -a, --ask         Ask the user for confirmation before executing any command.
+                    Used only after the alias name and before PROMPT along with Safety config set to 'Off'"
 
 * Model        : gpt-3.5-turbo
 * Temperature  : 0
 * Max. Tokens  : 500
 * Safety       : On
+
 ```
+> **Note:** The command `clio` is an acronym for **Command Line Input Output**, coined to provide a friendly alias to invoke this general-purpose CLI application. You can create your own aliases to invoke the application.
+
 This is the default Inline Mode available out of the box. Check out some of the usage examples below:
 ```bash
 clio what is the time now in Paris
@@ -40,6 +58,15 @@ clio show me some funny unicode characters
 
 clio show me the top three processes consuming the most CPU
 ```
+
+## More Usage (Coming Soon)
+- Create your own specialized agents whom you can invoke in Inline Mode using their individual aliases
+ - Open **chat-cli** in Shell mode to interact with the application in a conversational interface to execute more complex tasks.
+
+    Just type `chat` from your terminal to start **chat-cli** in an interactive Shell Mode like so:
+    ```
+    chat-cli v0.1 | Using Model: gpt-3.5-turbo | Using Agent: clio | Just Enter your query and Press Enter to get the response. Press Esc for Help, Ctr+C to Exit
+    ```
 
 
 # Local Development Setup
