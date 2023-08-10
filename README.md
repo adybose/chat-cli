@@ -32,7 +32,8 @@ AI Superpowers in your Terminal >_
 Usage: clio [OPTION] PROMPT
 
 Options:
-  -a, --ask        Ask the user for confirmation before executing any command (Only available with PROMPT and Safety config is Off)
+  -a, --ask         Ask the user for confirmation before executing any command
+                    Used only after the alias name and before PROMPT along with Safety config set to 'Off'"
 
 * Model        : gpt-3.5-turbo
 * Temperature  : 0
