@@ -20,9 +20,9 @@ colorama.init()
 
 # Print the usage information upon base command invokation
 def print_usage():
-    print("chat-cli v0.1")
     print()
-    print("AI Superpowers in your Terminal >_")
+    print("chat-cli v0.1")
+    print("AI Superpowers in your Terminal ❯_")
     print()
     print()
     print("Usage:                   [ALIAS] [-a] [PROMPT]")

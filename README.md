@@ -1,5 +1,5 @@
 # chat-cli
-AI Superpowers in your Terminal `>_`
+AI Superpowers in your Terminal `❯_`
 
 
 # License
@@ -27,7 +27,7 @@ There are two base commands available for using the application:
 Just say `clio` to see the detailed usage information like shown below:
 ```
 chat-cli v0.1
-AI Superpowers in your Terminal >_
+AI Superpowers in your Terminal ❯_
 
 Usage: clio [OPTION] PROMPT
 
